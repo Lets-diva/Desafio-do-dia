@@ -1,0 +1,497 @@
+/* Reset & Variáveis Globais */
+:root {
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+  --btn-hover-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #c026d3 100%);
+  --bg-gradient: radial-gradient(circle at top right, #1e1b4b, #0f172a 75%);
+  
+  --card-bg: rgba(30, 41, 59, 0.85);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  --input-bg: #0f172a;
+  --input-border: #334155;
+  --input-focus: #8b5cf6;
+  
+  --radius-lg: 24px;
+  --radius-md: 14px;
+  --radius-sm: 8px;
+  
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Prevenção rigorosa de rolagem horizontal */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  line-height: 1.6;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Container Principal */
+.app-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Card do App */
+.card {
+  width: 100%;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  box-shadow: var(--card-shadow);
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Cabeçalho do Card */
+.card-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.icon-badge {
+  font-size: 2.5rem;
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 50%;
+  box-shadow: 0 0 24px rgba(139, 92, 246, 0.25);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+}
+
+.description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  max-width: 400px;
+  margin: 0 auto 14px;
+}
+
+/* Contador de Desafios Realizados */
+.contador-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 18px;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 30px;
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.contador-box span {
+  color: #d946ef;
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+/* Corpo do Card e Formulário */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.input-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Campo de Nome Responsivo */
+.input-field {
+  width: 100%;
+  max-width: 100%;
+  padding: 16px 20px;
+  background-color: var(--input-bg);
+  border: 2px solid var(--input-border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  min-height: 52px;
+}
+
+.input-field::placeholder {
+  color: var(--text-muted);
+}
+
+.input-field:focus {
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.25);
+}
+
+.input-field.input-erro {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.2);
+}
+
+/* Botão Principal: Sortear Desafio */
+.btn-sortear {
+  width: 100%;
+  min-height: 54px;
+  padding: 16px 24px;
+  background: var(--primary-gradient);
+  border: none;
+  border-radius: var(--radius-md);
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+  touch-action: manipulation;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-sortear:hover {
+  background: var(--btn-hover-gradient);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(139, 92, 246, 0.5);
+}
+
+.btn-sortear:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.btn-sortear:focus-visible {
+  outline: 3px solid #d946ef;
+  outline-offset: 3px;
+}
+
+/* Grupo de Ações Secundárias */
+.botoes-acao {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Botão Novo Desafio */
+.btn-novo-desafio {
+  width: 100%;
+  min-height: 50px;
+  padding: 14px 20px;
+  background: rgba(30, 41, 59, 0.9);
+  border: 2px solid #8b5cf6;
+  border-radius: var(--radius-md);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  touch-action: manipulation;
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-novo-desafio:hover {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: #d946ef;
+  transform: translateY(-2px);
+}
+
+.btn-novo-desafio:active {
+  transform: translateY(1px);
+}
+
+.btn-novo-desafio:focus-visible {
+  outline: 3px solid #d946ef;
+  outline-offset: 3px;
+}
+
+/* Botão Recomeçar */
+.btn-recomecar {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 20px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  touch-action: manipulation;
+  transition: all 0.2s ease;
+}
+
+.btn-recomecar:hover {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #fca5a5;
+  transform: translateY(-1px);
+}
+
+.btn-recomecar:active {
+  transform: translateY(1px);
+}
+
+.btn-recomecar:focus-visible {
+  outline: 3px solid #ef4444;
+  outline-offset: 3px;
+}
+
+/* Classe utilitária para ocultar elementos */
+.oculto {
+  display: none !important;
+}
+
+.btn-icon {
+  font-size: 1.25rem;
+}
+
+/* Área de Exibição do Desafio */
+.area-desafio {
+  width: 100%;
+  min-height: 110px;
+  border: 2px dashed rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+/* Estado da área com resultado */
+.area-desafio.tem-resultado {
+  border: 2px solid rgba(168, 85, 247, 0.5);
+  background: rgba(139, 92, 246, 0.1);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.15);
+  animation: fadeInScale 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Estado de aviso/erro quando o nome não é preenchido */
+.area-desafio.aviso {
+  border: 2px solid rgba(239, 68, 68, 0.4);
+  background: rgba(239, 68, 68, 0.08);
+  color: #fca5a5;
+  animation: fadeInScale 0.3s ease forwards;
+}
+
+.resultado-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.desafio-saudacao {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #c084fc;
+}
+
+.desafio-saudacao span {
+  color: #f472b6;
+}
+
+.desafio-texto {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #f8fafc;
+  line-height: 1.5;
+}
+
+/* Animação suave para aparecimento do resultado */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==========================================
+   REGRAS DE RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================== */
+
+/* Tablets (largura até 768px) */
+@media (max-width: 768px) {
+  body {
+    padding: 20px 16px;
+  }
+
+  .card {
+    padding: 32px 24px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+}
+
+/* Celulares (largura até 480px) */
+@media (max-width: 480px) {
+  body {
+    padding: 16px 12px;
+  }
+
+  .card {
+    padding: 24px 18px;
+    border-radius: 20px;
+  }
+
+  .icon-badge {
+    width: 60px;
+    height: 60px;
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+  }
+
+  .title {
+    font-size: 1.55rem;
+    margin-bottom: 8px;
+  }
+
+  .description {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .contador-box {
+    font-size: 0.85rem;
+    padding: 6px 14px;
+  }
+
+  .input-label {
+    font-size: 0.8rem;
+  }
+
+  .input-field {
+    padding: 14px 16px;
+    font-size: 1rem;
+    min-height: 48px;
+  }
+
+  .btn-sortear {
+    font-size: 1rem;
+    min-height: 52px;
+    padding: 14px 20px;
+  }
+
+  .btn-novo-desafio {
+    font-size: 0.95rem;
+    min-height: 48px;
+    padding: 12px 18px;
+  }
+
+  .btn-recomecar {
+    font-size: 0.9rem;
+    min-height: 46px;
+    padding: 10px 16px;
+  }
+
+  .area-desafio {
+    min-height: 96px;
+    padding: 16px;
+  }
+
+  .desafio-saudacao {
+    font-size: 0.95rem;
+  }
+
+  .desafio-texto {
+    font-size: 0.95rem;
+  }
+}
+
+/* Dispositivos ultrapequenos (largura até 360px) */
+@media (max-width: 360px) {
+  .card {
+    padding: 20px 14px;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .btn-sortear {
+    font-size: 0.95rem;
+  }
+}

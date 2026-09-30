@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio do Dia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <main class="card">
+      <header class="card-header">
+        <div class="icon-badge">🎯</div>
+        <h1 class="title">Desafio do Dia</h1>
+        <p class="description">
+          Bem-vindo ao sorteador de desafios! Digite o seu nome abaixo e clique no botão para sortear desafios divertidos para encarar no seu dia.
+        </p>
+        <!-- Contador de desafios realizados -->
+        <div class="contador-box">
+          Desafios realizados: <span id="contador">0</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="input-group">
+          <label for="nome-usuario" class="input-label">Seu Nome</label>
+          <input 
+            type="text" 
+            id="nome-usuario" 
+            class="input-field" 
+            placeholder="Digite seu nome aqui..." 
+            autocomplete="off"
+          />
+        </div>
+
+        <button type="button" id="btn-sortear" class="btn-sortear">
+          <span class="btn-icon">✨</span>
+          <span>Sortear Desafio</span>
+        </button>
+
+        <!-- Área onde aparece o resultado do desafio -->
+        <section 
+          id="area-desafio" 
+          class="area-desafio" 
+          aria-live="polite" 
+          aria-label="Resultado do Desafio"
+        ></section>
+
+        <!-- Ações Secundárias (Abaixo do resultado) -->
+        <div class="botoes-acao">
+          <button type="button" id="btn-novo-desafio" class="btn-novo-desafio oculto">
+            <span class="btn-icon">🔄</span>
+            <span>Novo Desafio</span>
+          </button>
+
+          <button type="button" id="btn-recomecar" class="btn-recomecar oculto">
+            <span class="btn-icon">↺</span>
+            <span>Recomeçar</span>
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
